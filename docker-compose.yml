@@ -11,6 +11,7 @@ x-n8n: &service-n8n
   image: n8nio/n8n:latest
   networks: ['demo']
   environment:
+    - ROC_ENABLE_PRE_VEGA=1
     - DB_TYPE=postgresdb
     - DB_POSTGRESDB_HOST=postgres
     - DB_POSTGRESDB_USER=${POSTGRES_USER}
@@ -31,6 +32,8 @@ x-ollama: &service-ollama
     - 11434:11434
   volumes:
     - ollama_storage:/root/.ollama
+  devices:
+    - /dev/dri/renderD128:/dev/dri/renderD128
 
 x-init-ollama: &init-ollama
   image: ollama/ollama:latest

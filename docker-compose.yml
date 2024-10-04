@@ -24,7 +24,7 @@ x-n8n: &service-n8n
     - postgres
 
 x-ollama: &service-ollama
-  image: ollama/ollama:rocm # for intel latest
+  image: ollama/ollama:latest # for intel latest
   container_name: ollama
   networks: ['demo']
   restart: unless-stopped
